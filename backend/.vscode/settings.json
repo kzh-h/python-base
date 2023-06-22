@@ -1,0 +1,59 @@
+{
+    "terminal.integrated.defaultProfile.linux": "bash",
+    // フォーマッターの設定。
+    "python.formatting.provider": "black",
+    // .venvへのパス。ランダムに決定されるため修正。
+    "python.defaultInterpreterPath": "/opt/pysetup/.venv/python3-11-base-PnTh90xq-py3.11/bin/python",
+    // Lintの設定。flake8、mypy を有効化する。
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.mypyEnabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Args": [
+        "--config",
+        "setup.cfg"
+    ],
+    // リンター
+    "python.linting.lintOnSave": true,
+    // フォーマット自動整形
+    "editor.formatOnSave": true,
+    "[python]": {
+        "editor.tabSize": 4,
+        // import並び替え
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
+    },
+    "[markdown]": {
+        "editor.tabSize": 2,
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll.markdownlint": true
+        }
+    },
+    "[yaml]": {
+        "editor.tabSize": 2,
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true,
+    },
+    // blackの改行の長さを変更
+    "python.formatting.blackArgs": [
+        "--line-length=88"
+    ],
+    // docstringのフォーマット
+    "autoDocstring.docstringFormat": "google",
+    // pytest
+    "python.testing.pytestEnabled": true,
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./tests",
+        "-p",
+        "test*.py"
+    ]
+}

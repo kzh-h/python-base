@@ -1,0 +1,29 @@
+{
+    // IntelliSense を使用して利用可能な属性を学べます。
+    // 既存の属性の説明をホバーして表示します。
+    // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    // 実行時に引数入力を出す
+    "inputs": [
+        {
+            "type": "promptString",
+            "id": "prompt",
+            "description": "引数を入力してください。",
+            "default": ""
+        }
+    ],
+    "configurations": [
+        {
+            "name": "Python: 現在のファイル",
+            // 入力した引数つきで実行
+            "args": [
+                "${input:prompt}"
+            ],
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ]
+}

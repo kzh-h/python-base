@@ -1,0 +1,16 @@
+name: python-base-build
+
+services:
+
+  python-base-builder:
+    build:
+      context: ./backend/
+      dockerfile: Dockerfile
+      target: builder-base
+      args:
+        # default: python:3.11-slim-buster
+        # 変更の場合、.envファイルに記載
+        - IMAGE_NAME=${IMAGE_NAME:-python:3.11-slim-buster}
+    image: ${BUILDER_IMAGE_NAME:-python-3-11-base-builder:latest}
+    container_name: ${BUILDER_CONTAINER_NAME:-python-3-11-base-builder}
+    tty: True

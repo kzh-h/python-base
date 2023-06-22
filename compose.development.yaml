@@ -1,0 +1,23 @@
+name: python-base-development
+
+services:
+
+  python-base-development:
+    build:
+      context: ./backend/
+      dockerfile: Dockerfile
+      target: development
+      args:
+        # default: python:3.11-slim-buster
+        # 変更の場合、.envファイルに記載
+        - IMAGE_NAME=${IMAGE_NAME:-python:3.11-slim-buster}
+    image: ${DEV_IMAGE_NAME:-python-3-11-base-development:latest}
+    container_name: ${DEV_CONTAINER_NAME:-python-3-11-base-development}
+    volumes:
+      - type: bind
+        source: ./
+        target: /workspace
+      - type: bind
+        source: ./.ssh
+        target: /root/.ssh
+    tty: true
